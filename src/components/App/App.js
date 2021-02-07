@@ -1,12 +1,12 @@
 import './App.css';
-
-import Planets from '../Planets';
+import Galaxy from '../Galaxy/Galaxy';
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Star Wars Planets</h1>
-      <Planets />
+      <div>
+        <Galaxy />
+      </div>
     </div>
   );
 }

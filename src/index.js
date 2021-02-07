@@ -2,11 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Routers from './routers';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
+import { fetchPlanets } from './redux/galaxy/galaxyThunks';
+
+store.dispatch(fetchPlanets());
 
 ReactDOM.render(
   <React.StrictMode>
-    <Routers />
+    <Provider store={store}>
+      <Routers />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

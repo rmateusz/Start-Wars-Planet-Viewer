@@ -1,0 +1,1 @@
+export const requestPlanetImageFile = require.context('./src/assets/images', true, /.png$/);
