@@ -3,13 +3,32 @@ import AlderaanImg from '../../assets/img/planets/Alderaan.png';
 import HothImg from '../../assets/img/planets/Hoth.png';
 import RandomPlanetImg from '../../assets/img/planets/RandomPlanet.png';
 import TatooineImg from '../../assets/img/planets/Tatooine.png';
-import YavinImg from '../../assets/img/planets/Yavin.png';
+import LeiaImg from '../../assets/img/residents/leia.png';
+import LukeImg from '../../assets/img/residents/luke.png';
+import VaderImg from '../../assets/img/residents/vader.png';
 
 const imageDictionary = {
     "Alderaan": AlderaanImg,
     "Hoth": HothImg,
     "Tatooine": TatooineImg,
-    "Yavin IV": YavinImg,
+    // "Yavin IV": YavinImg,
+}
+
+const imageResidentsDictionary = {
+    "Leia": LeiaImg,
+    "Luke Skywalker": LukeImg,
+    "Darth Vader": VaderImg,
+    // "Yavin IV": YavinImg,
+}
+
+export const residentsMapper = (residents) => {
+    return residents.map(r => {
+        const residentImage = imageResidentsDictionary[r.name];
+        return {
+            ...r,
+            image: residentImage ? residentImage : null
+        }
+    });
 }
 
 export const planetsMapper = (planets) => {

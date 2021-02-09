@@ -14,8 +14,8 @@ const Planet = ({
 }) => {
     const [highlighted, setHighlight] = useState(false);
     const [classesSet, setClassesSet] = useState(cssNames.planet);
-    const [imgSrc, setImageSrc] = useState(planetDetails.img);
-    const [imgStyles, setImgStyles] = useState({
+    const [imgSrc] = useState(planetDetails.img);
+    const [imgStyles] = useState({
         left: percentegeValue(planetDetails.positionX),
         top: percentegeValue(planetDetails.positionY)
     });

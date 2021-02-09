@@ -1,4 +1,3 @@
-
 export const StatesEnum = {
     galaxy: 'galaxy',
     planet: 'planet',

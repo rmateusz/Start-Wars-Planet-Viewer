@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { parseResponse } from '../../utils/fetchUtils';
 import { GET_PLANETS, GET_PLANET_DETAILS } from './constants'
-import { planetsMapper } from './mappers';
+import { planetsMapper, residentsMapper } from './mappers';
 
 export const fetchAllPlanetsFilms = async planets => {
     return planets.map(p => Promise.all(p.films.map(async f => await fetch(f))));
@@ -30,6 +30,6 @@ export const fetchPlanetDetails = createAsyncThunk(GET_PLANET_DETAILS, async (pl
 
     return {
         ...planet,
-        residents
+        residents: residentsMapper(residents)
     };
 });

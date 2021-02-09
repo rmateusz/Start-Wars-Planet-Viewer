@@ -4,14 +4,20 @@ import falconCockpit from '../../../../assets/img/pureFalconCockpit.png' //'../.
 import stars from '../../../../assets/img/stars.png';
 
 const PlanetDetails = ({
-    img
+    climate,
+    created,
+    diameter,
+    edited,
+    gravity,
+    name,
+    orbital_period,
+    population,
+    rotation_period,
+    surface_water,
+    terrain
 }) => {
     return (<div className="planet-detail-view">
-        <img className={"cockpit-image"} src={falconCockpit} alt="Logo" />
-        <img className={"galaxy-image"} src={stars} alt="Logo" />
-        <div className="planets-container">
-            <img alt={''} className="planet-image" src={img} ></img>
-        </div>
+
     </div>
     );
 };

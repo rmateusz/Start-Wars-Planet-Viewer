@@ -14,11 +14,7 @@ export const galaxySlice = createSlice({
   },
   reducers: {
     choosePlanet: (state, action) => {
-      if (state.chosenPlanet.name === action.payload.name) {
-        state.chosenPlanet = null;
-      } else {
-        state.chosenPlanet = state.planets.find(p => p.name === action.payload.name);
-      }
+        state.chosenPlanet = action.payload;
     },
     gridVisibility: state => {
       state.gridVisible = !state.gridVisible;
@@ -26,12 +22,15 @@ export const galaxySlice = createSlice({
     loadPlanets: (state, action) => {
       state.planets = (state, action) ;
     },
+    setPlanetView: state => {
+      state.shipState = StatesEnum.planet;
+    },
     setShipState: (state, action) => {
       state.shipState = (state, action) ;
     },
   },
   extraReducers: {
-    [fetchPlanets.pending]: (state, action) => {
+    [fetchPlanets.pending]: (state) => {
       state.loadingCounter++;
       state.shipState = StatesEnum.loading;
     },
@@ -47,7 +46,7 @@ export const galaxySlice = createSlice({
       state.planets = [];      
       state.error = action.error.message;
     },
-    [fetchPlanetDetails.pending]: (state, action) => {
+    [fetchPlanetDetails.pending]: (state) => {
       state.loadingCounter++;
       state.shipState = StatesEnum.warp;
     },
@@ -60,16 +59,16 @@ export const galaxySlice = createSlice({
       state.loadingCounter -= state.loadingCounter;
       state.status = 'failed';
       state.planets = [];      
-      state.error = action.error.message
+      state.error = action.error.message;
     },
   },
 });
 
-export const { choosePlanet, loadPlanets, setShipState } = galaxySlice.actions;
+export const { choosePlanet, loadPlanets, setPlanetView, setShipState } = galaxySlice.actions;
 
 export const selectAllPlanets = state => state.galaxy.planets;
 export const selectPlanetsByName = (state, name) => state.galaxy.planets.find(planet => planet.name === name);
-export const selectChosenPlanet = state => state.galaxy.selectedPlanet;
+export const selectChosenPlanet = state => state.galaxy.chosenPlanet;
 export const selectLoadings = state => state.galaxy.loadingCounter;
 export const selectShipState = state => state.galaxy.shipState;
 
