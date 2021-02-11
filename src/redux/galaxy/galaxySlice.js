@@ -22,6 +22,9 @@ export const galaxySlice = createSlice({
     loadPlanets: (state, action) => {
       state.planets = (state, action) ;
     },
+    setGalaxyView: state => {
+      state.shipState = StatesEnum.galaxy;
+    },
     setPlanetView: state => {
       state.shipState = StatesEnum.planet;
     },
@@ -64,7 +67,7 @@ export const galaxySlice = createSlice({
   },
 });
 
-export const { choosePlanet, loadPlanets, setPlanetView, setShipState } = galaxySlice.actions;
+export const { choosePlanet, loadPlanets, setGalaxyView, setPlanetView, setShipState } = galaxySlice.actions;
 
 export const selectAllPlanets = state => state.galaxy.planets;
 export const selectPlanetsByName = (state, name) => state.galaxy.planets.find(planet => planet.name === name);
