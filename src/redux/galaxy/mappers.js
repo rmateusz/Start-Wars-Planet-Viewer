@@ -1,40 +1,6 @@
-/* eslint-disable no-undef */
 import { mockData } from './mockData';
-import AlderaanImg from '../../assets/img/planets/Alderaan.png';
-import HothImg from '../../assets/img/planets/Hoth.png';
 import RandomPlanetImg from '../../assets/img/planets/RandomPlanet.png';
-import TatooineImg from '../../assets/img/planets/Tatooine.png';
-import LeiaImg from '../../assets/img/residents/leia.png';
-import LukeImg from '../../assets/img/residents/luke.png';
-import VaderImg from '../../assets/img/residents/vader.png';
-import AnakinSkywalkerImg from '../../assets/img/residents/AnakinSkywalker.png';
-import BeruWhitesunlarsImg from '../../assets/img/residents/BeruWhitesunlars.png';
-import BiggsDarklighterImg from '../../assets/img/residents/BiggsDarklighter.png';
-import OwenLarsImg from '../../assets/img/residents/OwenLars.png';
-import R5D4Img from '../../assets/img/residents/R5D4.png';
-import ShmiSkywalkerImg from '../../assets/img/residents/ShmiSkywalker.png';
-import RaymusAntillesImg from '../../assets/img/residents/RaymusAntilles.png';
-import BailPrestorOrganaImg from '../../assets/img/residents/BailPrestorOrgana.png';
-
-const imageDictionary = {
-    "Alderaan": AlderaanImg,
-    "Hoth": HothImg,
-    "Tatooine": TatooineImg,
-}
-
-const imageResidentsDictionary = {
-    "Leia Organa": LeiaImg,
-    "Luke Skywalker": LukeImg,
-    "Darth Vader": VaderImg,
-    "Anakin Skywalker": AnakinSkywalkerImg,
-    "Beru Whitesunlars": BeruWhitesunlarsImg, 
-    "Biggs Darklighter": BiggsDarklighterImg,
-    "Owen Lars": OwenLarsImg,
-    "R5-D4": R5D4Img,
-    "Shmi Skywalker": ShmiSkywalkerImg,
-    "Raymus Antilles": RaymusAntillesImg,
-    "Bail Prestor Organa": BailPrestorOrganaImg,
-}
+import { imagePlanetsDictionary, imageResidentsDictionary } from './imageDictionaries';
 
 export const residentsMapper = (residents) => {
     return residents.map(r => {
@@ -48,7 +14,7 @@ export const residentsMapper = (residents) => {
 
 export const planetsMapper = (planets) => {
     const findImage = (planetName) => {
-        let img = imageDictionary[planetName];
+        let img = imagePlanetsDictionary[planetName];
 
         return img ? img : RandomPlanetImg;
     };

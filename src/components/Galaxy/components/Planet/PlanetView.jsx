@@ -42,53 +42,14 @@ const PlanetView = ({
     return (<div className="cockpit-container">
         <img className={"cockpit-image"} src={cockpitImage} alt="Logo" />
         <img className={"galaxy-image"} src={stars} alt="Logo" />
-        <div className={`planet-details-panel${isPlanetDetailsOpen ? ' open' : ''}`}>
-            <div className="info">
-                <label className="name">NAME: </label>
-                <label className="value">{planetDetails.name}</label>
-            </div>
-            <div className="info">
-                <label className="name">GRAVITY: </label>
-                <label className="value">{planetDetails.gravity}</label>
-            </div>
-            <div className="info">
-                <label className="name">CLIMATE: </label>
-                <label className="value">{planetDetails.climate}</label>
-            </div>
-            <div className="info">
-                <label className="name">DIAMETER: </label>
-                <label className="value">{planetDetails.diameter}</label>
-            </div>
-            <div className="info">
-                <label className="name">ORBITAL PERIOD: </label>
-                <label className="value">{planetDetails.orbital_period}</label>
-            </div>
-            <div className="info">
-                <label className="name">POPULATION: </label>
-                <label className="value">{planetDetails.population}</label>
-            </div>
-            <div className="info">
-                <label className="name">ROTATION PERIOD: </label>
-                <label className="value">{planetDetails.rotation_period}</label>
-            </div>
-            <div className="info">
-                <label className="name">SURFACE WATER: </label>
-                <label className="value">{planetDetails.surface_water}</label>
-            </div>
-            <div className="info">
-                <label className="name">TERRAIN: </label>
-                <label className="value">{planetDetails.terrain}</label>
-            </div>
-            
-        </div>
-        {/* {residentImage && <img alt={''} className="resident-image" src={residentImage} ></img>} */}
+        <PlanetDetails {...planetDetails} isPlanetDetailsOpen={isPlanetDetailsOpen} />
         {residentSelected && <Resident {...residentSelected} />}
         <button className="cockpit-button-planet" onClick={onPlanetButtonClick}></button>
         <button className="cockpit-button-back" onClick={onBackButtonClick}></button>
         <button className="cockpit-button-residents" onClick={onChangeResident}></button>
         <div className="planet-container">
             <img alt={''} className="planet-image" src={planetDetails.img} ></img>
-            <PlanetDetails {...planetDetails} />
+            
         </div>
     </div>
     );

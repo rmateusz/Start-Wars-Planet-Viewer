@@ -12,8 +12,8 @@ const Planet = ({
     planetDetails,
     onClick
 }) => {
-    const [highlighted, setHighlight] = useState(false);
     const [classesSet, setClassesSet] = useState(cssNames.planet);
+    const [highlighted, setHighlight] = useState(false);
     const [imgSrc] = useState(planetDetails.img);
     const [imgStyles] = useState({
         left: percentegeValue(planetDetails.positionX),

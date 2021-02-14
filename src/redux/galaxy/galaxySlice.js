@@ -7,20 +7,13 @@ export const galaxySlice = createSlice({
   initialState: {
     chosenPlanet: null,
     error: '',
-    gridVisible: false,
     loadingCounter: 0,
-    shipState: StatesEnum.idle,
     planets: [],
+    shipState: StatesEnum.idle,
   },
   reducers: {
     choosePlanet: (state, action) => {
         state.chosenPlanet = action.payload;
-    },
-    gridVisibility: state => {
-      state.gridVisible = !state.gridVisible;
-    },
-    loadPlanets: (state, action) => {
-      state.planets = (state, action) ;
     },
     setGalaxyView: state => {
       state.shipState = StatesEnum.galaxy;
@@ -67,12 +60,10 @@ export const galaxySlice = createSlice({
   },
 });
 
-export const { choosePlanet, loadPlanets, setGalaxyView, setPlanetView, setShipState } = galaxySlice.actions;
+export const { choosePlanet, setGalaxyView, setPlanetView } = galaxySlice.actions;
 
 export const selectAllPlanets = state => state.galaxy.planets;
-export const selectPlanetsByName = (state, name) => state.galaxy.planets.find(planet => planet.name === name);
 export const selectChosenPlanet = state => state.galaxy.chosenPlanet;
-export const selectLoadings = state => state.galaxy.loadingCounter;
 export const selectShipState = state => state.galaxy.shipState;
 
 export default galaxySlice.reducer;
